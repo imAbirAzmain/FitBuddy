@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.SleepController"
+            styleClass="page">
+
+    <center>
+        <VBox spacing="14" styleClass="content">
+
+            <HBox spacing="10">
+                <Label text="😴 Sleep Log" styleClass="h1"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Back" onAction="#back" styleClass="btn"/>
+            </HBox>
+
+            <VBox spacing="12" styleClass="card">
+                <Label text="Add Sleep Entry" styleClass="h2"/>
+                <HBox spacing="12">
+                    <DatePicker fx:id="datePicker" prefWidth="220"/>
+                    <TextField fx:id="hoursField" promptText="Hours (e.g. 7.5)" prefWidth="220"/>
+                    <Button text="Add" onAction="#addSleep" styleClass="btn-primary"/>
+                    <Button text="Delete Selected" onAction="#deleteSelected" styleClass="btn"/>
+                </HBox>
+                <Label fx:id="msgLabel" text="" styleClass="muted"/>
+            </VBox>
+
+            <VBox spacing="10" styleClass="card">
+                <Label text="History" styleClass="h2"/>
+                <TableView fx:id="table" prefHeight="420">
+                    <columns>
+                        <TableColumn text="Date" prefWidth="300">
+                            <cellValueFactory><PropertyValueFactory property="date"/></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Hours" prefWidth="300">
+                            <cellValueFactory><PropertyValueFactory property="hours"/></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

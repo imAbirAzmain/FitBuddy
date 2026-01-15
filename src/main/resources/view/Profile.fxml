@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.ProfileController"
+            styleClass="page">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox spacing="12" styleClass="glass sidebar">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="👤" style="-fx-font-size: 22px;"/>
+                <VBox spacing="2">
+                    <Label text="FitBuddy" styleClass="sidebar-title"/>
+                    <Label text="Profile Hub" styleClass="sidebar-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="8"/>
+
+            <Button text="🏠  Dashboard" onAction="#goToDashboard" styleClass="nav-btn"/>
+            <Button text="⚖️  Weight Tracker" onAction="#goToWeight" styleClass="nav-btn"/>
+            <Button text="📈  Analytics / Charts" onAction="#goToCharts" styleClass="nav-btn"/>
+            <Button text="👤  Profile" styleClass="nav-btn-primary"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="⬅ Back" onAction="#backToDashboard" styleClass="btn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox spacing="16" styleClass="content">
+
+            <HBox spacing="14" styleClass="glass topbar">
+                <VBox spacing="3">
+                    <Label text="Profile" styleClass="h1"/>
+                    <Label text="User details and preferences" styleClass="muted"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="🟣 Verified" styleClass="tag tag-purple"/>
+            </HBox>
+
+            <HBox spacing="14">
+                <VBox spacing="12" styleClass="card card-purple" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="🪪" styleClass="icon-bubble icon-purple"/>
+                        <VBox spacing="2">
+                            <Label text="User Card" styleClass="h2"/>
+                            <Label text="Demo data now, DB later" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label fx:id="nameLabel" text="Name: --" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: 900;"/>
+                    <Label fx:id="ageLabel" text="Age: --" style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 14px;"/>
+                    <Label fx:id="heightLabel" text="Height: --" style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 14px;"/>
+                    <Label fx:id="goalLabel" text="Goal: --" style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 14px;"/>
+
+                    <Separator styleClass="divider"/>
+
+                    <HBox spacing="10">
+                        <Label text="🎯 Goal" styleClass="tag tag-purple"/>
+                        <Label text="🥗 Nutrition" styleClass="tag tag-green"/>
+                        <Label text="💤 Sleep" styleClass="tag tag-blue"/>
+                        <Label text="🔥 Consistency" styleClass="tag tag-orange"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="12" styleClass="card card-blue" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="⚡" styleClass="icon-bubble icon-blue"/>
+                        <VBox spacing="2">
+                            <Label text="Preferences" styleClass="h2"/>
+                            <Label text="Just for visuals (demo)" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label text="• Dark theme enabled ✅" style="-fx-text-fill: rgba(255,255,255,0.88); -fx-font-size: 14px;"/>
+                    <Label text="• Notifications: On 🔔" style="-fx-text-fill: rgba(255,255,255,0.88); -fx-font-size: 14px;"/>
+                    <Label text="• Weekly report: Enabled 📄" style="-fx-text-fill: rgba(255,255,255,0.88); -fx-font-size: 14px;"/>
+
+                    <Region prefHeight="10"/>
+                    <Button text="✨ Edit Profile (Later)" styleClass="btn-primary"/>
+                    <Label text="Person 2 will connect real profile editing." styleClass="muted"/>
+                </VBox>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.WeightController"
+            styleClass="page">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox spacing="12" styleClass="glass sidebar">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="⚖️" style="-fx-font-size: 22px;"/>
+                <VBox spacing="2">
+                    <Label text="FitBuddy" styleClass="sidebar-title"/>
+                    <Label text="Weight Tracker" styleClass="sidebar-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="8"/>
+
+            <Button text="🏠  Dashboard" onAction="#goToDashboard" styleClass="nav-btn"/>
+            <Button text="⚖️  Weight Tracker" styleClass="nav-btn-primary"/>
+            <Button text="📈  Analytics / Charts" onAction="#goToCharts" styleClass="nav-btn"/>
+            <Button text="👤  Profile" onAction="#goToProfile" styleClass="nav-btn"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="⬅ Back" onAction="#backToDashboard" styleClass="btn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox spacing="16" styleClass="content">
+
+            <HBox spacing="14" styleClass="glass topbar" alignment="CENTER_LEFT">
+                <VBox spacing="3">
+                    <Label text="Weight Tracker" styleClass="h1"/>
+                    <Label text="Log entries and view your history" styleClass="muted"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label fx:id="modeLabel" text="Mode: Demo Data" styleClass="tag tag-blue"/>
+            </HBox>
+
+            <HBox spacing="14">
+                <!-- Add Entry Card -->
+                <VBox spacing="12" styleClass="card card-blue" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="➕" styleClass="icon-bubble icon-blue"/>
+                        <VBox spacing="2">
+                            <Label text="Add Weight Entry" styleClass="h2"/>
+                            <Label text="Use realistic values for best tracking" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="12">
+                        <VBox spacing="6">
+                            <Label text="Date" styleClass="muted"/>
+                            <DatePicker fx:id="datePicker" prefWidth="220"/>
+                        </VBox>
+
+                        <VBox spacing="6">
+                            <Label text="Weight (kg)" styleClass="muted"/>
+                            <TextField fx:id="weightField" promptText="e.g., 69.5" prefWidth="220"/>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <VBox spacing="6" alignment="BOTTOM_RIGHT">
+                            <Button text="✅ Add" onAction="#addWeight" styleClass="btn-primary"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label fx:id="messageLabel" text="" styleClass="muted"/>
+                </VBox>
+
+                <!-- Quick Stats Card -->
+                <VBox spacing="10" styleClass="card card-purple" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="✨" styleClass="icon-bubble icon-purple"/>
+                        <VBox spacing="2">
+                            <Label text="Quick Stats" styleClass="h2"/>
+                            <Label text="Demo insights" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label fx:id="latestLabel" text="Latest: -- kg" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: 900;"/>
+                    <Label fx:id="avgLabel" text="Average (5): -- kg" style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 14px;"/>
+                    <Label fx:id="diffLabel" text="Change: -- kg" style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 14px;"/>
+
+                    <ProgressBar fx:id="progressBar" progress="0.55" prefWidth="999"/>
+                    <Label text="Tip: Track 3-4 times per week." styleClass="muted"/>
+                </VBox>
+            </HBox>
+
+            <!-- Table -->
+            <VBox spacing="12" styleClass="card card-green">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="📜" styleClass="icon-bubble icon-green"/>
+                    <VBox spacing="2">
+                        <Label text="History" styleClass="h2"/>
+                        <Label text="Select a row to delete" styleClass="muted"/>
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="🗑 Delete Selected" onAction="#deleteSelected" styleClass="btn"/>
+                </HBox>
+
+                <TableView fx:id="weightTable" prefHeight="320">
+                    <columns>
+                        <TableColumn fx:id="dateCol" text="Date" prefWidth="260">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="weightCol" text="Weight (kg)" prefWidth="260">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="weight"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

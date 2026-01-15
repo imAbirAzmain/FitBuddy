@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.RegisterController"
+            styleClass="page">
+
+    <center>
+        <VBox spacing="16" alignment="CENTER" styleClass="content">
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="FitBuddy" styleClass="h1"/>
+                <Label text="Create your account" styleClass="muted"/>
+            </VBox>
+
+            <VBox spacing="12" styleClass="card" maxWidth="460">
+                <Label text="Register" styleClass="h2"/>
+
+                <TextField fx:id="usernameField" promptText="Username" prefHeight="42"/>
+                <PasswordField fx:id="passwordField" promptText="Password (4+ chars)" prefHeight="42"/>
+                <PasswordField fx:id="confirmField" promptText="Confirm password" prefHeight="42"/>
+
+                <Label fx:id="msgLabel" text="" styleClass="muted"/>
+
+                <HBox spacing="10">
+                    <Button text="Register" onAction="#handleRegister" styleClass="btn-primary" HBox.hgrow="ALWAYS"/>
+                    <Button text="Back to login" onAction="#backToLogin" styleClass="btn" HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

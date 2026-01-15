@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.ChartsController"
+            styleClass="page">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox spacing="12" styleClass="glass sidebar">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="📈" style="-fx-font-size: 22px;"/>
+                <VBox spacing="2">
+                    <Label text="FitBuddy" styleClass="sidebar-title"/>
+                    <Label text="Analytics Center" styleClass="sidebar-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <Region prefHeight="8"/>
+
+            <Button text="🏠  Dashboard" onAction="#goToDashboard" styleClass="nav-btn"/>
+            <Button text="⚖️  Weight Tracker" onAction="#goToWeight" styleClass="nav-btn"/>
+            <Button text="📈  Analytics / Charts" styleClass="nav-btn-primary"/>
+            <Button text="👤  Profile" onAction="#goToProfile" styleClass="nav-btn"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button text="⬅ Back" onAction="#backToDashboard" styleClass="btn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT -->
+    <center>
+        <VBox spacing="16" styleClass="content">
+
+            <!-- TOP BAR -->
+            <HBox spacing="14" styleClass="glass topbar" alignment="CENTER_LEFT">
+                <VBox spacing="3">
+                    <Label text="Analytics" styleClass="h1"/>
+                    <Label text="Trends and insights from your progress" styleClass="muted"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Label fx:id="insightLabel" text="Insight: --" styleClass="tag tag-green"/>
+                    <Button text="🔄 Refresh" onAction="#refreshCharts" styleClass="btn-primary"/>
+                </HBox>
+            </HBox>
+
+            <!-- CHARTS ROW -->
+            <HBox spacing="14">
+                <VBox spacing="10" styleClass="card card-purple" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="⚖️" styleClass="icon-bubble icon-purple"/>
+                        <VBox spacing="2">
+                            <Label text="Weight Progress" styleClass="h2"/>
+                            <Label text="Last days trend" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <LineChart fx:id="weightChart" prefHeight="310" title="Weight Over Time">
+                        <xAxis>
+                            <CategoryAxis label="Date"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Weight (kg)"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <VBox spacing="10" styleClass="card card-blue" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="🔥" styleClass="icon-bubble icon-blue"/>
+                        <VBox spacing="2">
+                            <Label text="Calories" styleClass="h2"/>
+                            <Label text="Intake versus burned" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <BarChart fx:id="calorieChart" prefHeight="310" title="Calories (Intake vs Burned)">
+                        <xAxis>
+                            <CategoryAxis label="Day"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Calories"/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+
+            <!-- INSIGHT PANEL -->
+            <HBox spacing="14">
+                <VBox spacing="10" styleClass="card card-green" HBox.hgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="🧠" styleClass="icon-bubble icon-green"/>
+                        <VBox spacing="2">
+                            <Label text="Coach Insight" styleClass="h2"/>
+                            <Label text="A simple AI-like summary (demo)" styleClass="muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label fx:id="coachLine1" text="• --" style="-fx-text-fill: rgba(255,255,255,0.90); -fx-font-size: 14px; -fx-font-weight: 800;"/>
+                    <Label fx:id="coachLine2" text="• --" style="-fx-text-fill: rgba(255,255,255,0.82); -fx-font-size: 13px;"/>
+                    <Label fx:id="coachLine3" text="• --" style="-fx-text-fill: rgba(255,255,255,0.82); -fx-font-size: 13px;"/>
+                </VBox>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

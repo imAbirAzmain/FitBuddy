@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.DailyLogController"
+            styleClass="page">
+
+    <center>
+        <VBox spacing="16" alignment="CENTER" styleClass="content">
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Daily Logging" styleClass="h1"/>
+                <Label text="Log your daily activity and health data" styleClass="muted"/>
+            </VBox>
+
+            <HBox spacing="14">
+                <VBox spacing="12" styleClass="card" prefWidth="260">
+                    <Label text="🚶 Steps" styleClass="h2"/>
+                    <Label text="Track daily steps" styleClass="muted"/>
+                    <Button text="Open" onAction="#goSteps" styleClass="btn-primary"/>
+                </VBox>
+
+                <VBox spacing="12" styleClass="card" prefWidth="260">
+                    <Label text="🍽 Meals" styleClass="h2"/>
+                    <Label text="Log meals and calories" styleClass="muted"/>
+                    <Button text="Open" onAction="#goMeals" styleClass="btn-primary"/>
+                </VBox>
+
+                <VBox spacing="12" styleClass="card" prefWidth="260">
+                    <Label text="🏋️ Workouts" styleClass="h2"/>
+                    <Label text="Duration and calories burned" styleClass="muted"/>
+                    <Button text="Open" onAction="#goWorkouts" styleClass="btn-primary"/>
+                </VBox>
+
+                <VBox spacing="12" styleClass="card" prefWidth="260">
+                    <Label text="😴 Sleep" styleClass="h2"/>
+                    <Label text="Hours slept per day" styleClass="muted"/>
+                    <Button text="Open" onAction="#goSleep" styleClass="btn-primary"/>
+                </VBox>
+            </HBox>
+
+            <Button text="Back to Dashboard" onAction="#backToDashboard" styleClass="btn"/>
+            <Button text="Logout" onAction="#logout" styleClass="btn"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

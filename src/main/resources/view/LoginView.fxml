@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.LoginController"
+            styleClass="page">
+
+    <center>
+        <VBox spacing="16" alignment="CENTER" styleClass="content">
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="FitBuddy" styleClass="h1"/>
+                <Label text="Neon Fitness Tracker • Login" styleClass="muted"/>
+            </VBox>
+
+            <VBox spacing="12" styleClass="card" maxWidth="460">
+                <Label text="Sign in" styleClass="h2"/>
+
+                <TextField fx:id="usernameField" promptText="Username" prefHeight="42"/>
+                <PasswordField fx:id="passwordField" promptText="Password" prefHeight="42"/>
+
+                <Label fx:id="errorLabel" text="" styleClass="muted"/>
+
+                <HBox spacing="10">
+                    <Button text="Login" onAction="#handleLogin" styleClass="btn-primary" HBox.hgrow="ALWAYS"/>
+                    <Button text="Create account" onAction="#goToRegister" styleClass="btn" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Label text="Demo: admin / 1234" styleClass="muted"/>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

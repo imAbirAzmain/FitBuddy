@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane prefWidth="1120" prefHeight="720"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fitbuddy.controller.MealsController"
+            styleClass="page">
+
+    <center>
+        <VBox spacing="14" styleClass="content">
+
+            <HBox spacing="10">
+                <Label text="🍽 Meal Log" styleClass="h1"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Back" onAction="#back" styleClass="btn"/>
+            </HBox>
+
+            <VBox spacing="12" styleClass="card">
+                <Label text="Add Meal Entry" styleClass="h2"/>
+                <HBox spacing="12">
+                    <DatePicker fx:id="datePicker" prefWidth="220"/>
+                    <TextField fx:id="mealNameField" promptText="Meal name" prefWidth="260"/>
+                    <TextField fx:id="caloriesField" promptText="Calories (e.g. 450)" prefWidth="220"/>
+                    <Button text="Add" onAction="#addMeal" styleClass="btn-primary"/>
+                    <Button text="Delete Selected" onAction="#deleteSelected" styleClass="btn"/>
+                </HBox>
+                <Label fx:id="msgLabel" text="" styleClass="muted"/>
+            </VBox>
+
+            <VBox spacing="10" styleClass="card">
+                <Label text="History" styleClass="h2"/>
+                <TableView fx:id="table" prefHeight="420">
+                    <columns>
+                        <TableColumn text="Date" prefWidth="220">
+                            <cellValueFactory><PropertyValueFactory property="date"/></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Meal" prefWidth="420">
+                            <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Calories" prefWidth="220">
+                            <cellValueFactory><PropertyValueFactory property="calories"/></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
